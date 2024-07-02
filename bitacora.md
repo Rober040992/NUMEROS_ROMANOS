@@ -7,5 +7,5 @@ to_roman(n: init) -> str
 
 -empezamos con los test 
 -para ir descomponiendo 
--primero ponemos los numeros evidentes el 1 ,5 , 10 
-
+-test primero ponemos los numeros evidentes el 1 ,5 , 10 
+-test numeros compuestos ejemplo el 6 (VI)
