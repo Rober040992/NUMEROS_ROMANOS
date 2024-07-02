@@ -1,4 +1,4 @@
-from roman_funcs import to_roman
+from roman_funcs import to_roman, dividir_en_digitos
 def test_romanos_simples():
     assert to_roman(1) == "I"
     assert to_roman(5) == "V"
@@ -23,4 +23,7 @@ def test_romanos_del_1_al_9():
 def test_romanos_10_al_90():
     assert to_roman(10) == "X"
     assert to_roman(20) == "XX"
-    
+#pooner todos los casos 
+def test_dividir_en_digitos():
+    assert dividir_en_digitos(2024) == [2000,0,20,4]
+
