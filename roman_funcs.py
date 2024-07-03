@@ -10,36 +10,23 @@ valors = {
 
 def to_roman(n):
 
-    if n <= 3:
-        result = n * valors[1]
-    elif n == 4:
-        result = valors[1] + valors [5]
-    elif n < 9:
-        result = valors[5] + (n - 5) * valors[1]
-    elif n == 9:
-        result = valors[1] + valors[10]
-    elif n <= 30:
-        result = n//10 * valors[10]
-    elif n == 40:
-        result = valors[10] + valors[50]
-    elif n < 90:
-        result = valors [50] + (n - 50) // 10 * valors[10]
-    elif n == 90:
-        result = valors[10] + valors[100]
-    elif n <= 300:
-        result = n // 100 * valors[100]
-    elif n == 400:
-        result = valors[100] + valors[500]
-    elif n < 900:
-        result = valors[500] + (n-500) // 100 * valors[100]
-    elif n == 900:
-        result = valors[100] + valors[1000]
-    elif n <= 3000:
-        result = n // 1000 * valors[1000]
+    unidad, orden = separa_unidad_del_orden(n)
+    
+    if unidad <= 3:
+        result = unidad * valors[orden]
+    elif unidad == 4:
+        result = valors[orden] + valors [5 * orden]
+    elif unidad < 9:
+        result = valors[5 * orden] + (unidad - 5) * valors[orden]
+    elif unidad == 9:
+        result = valors[orden] + valors[10 * orden]
+
+
     else:
         result = valors[n]
 
     return result
+
 
 def dividir_en_digitos(n:int):
     """no entran numeros mayores de 3999"""
@@ -62,3 +49,30 @@ def digitos_a_roman(lista):
 def arabigo_a_romano(n: int):
     lista = dividir_en_digitos(n)
     return digitos_a_roman(lista)
+
+
+def separa_unidad_del_orden(cifra):  # cifra 200 devielve 2 , 100
+    """procesa la cifra y devuelve separado el numero de las decenas, centenas , millares"""
+    
+    cifra_str = str(cifra)     #hay que transformar la cifra en una str para poder seleccionar 
+
+    unidad = int(cifra_str[0]) #crea una var que tome el primer valor de cifra_str
+    
+    orden = 10 ** (len(cifra_str) - 1)   #ahora crea otra var que saque el orden 
+
+    return unidad , orden
+
+
+def divide_en_miles(n):
+
+    lista = []
+    modulo = n % 1000
+    entero = n // 1000
+
+    if entero < 4:
+        lista.append(n)
+    else:
+        lista.append(modulo)
+        lista.append(entero)
+    return lista
+
