@@ -53,7 +53,8 @@ def arabigo_a_romano(n: int):
     for num_asteriscos, cifra in enumerate(miles):
         lista = dividir_en_digitos(cifra)
         romano = digitos_a_roman(lista)
-        romano += "*" * num_asteriscos
+        if romano != "":   # esto es para que meta asteriscos 
+            romano += "*" * num_asteriscos
         resultado = romano + resultado
     
     return resultado
