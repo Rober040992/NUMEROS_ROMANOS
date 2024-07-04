@@ -47,9 +47,16 @@ def digitos_a_roman(lista):
     return result
 
 def arabigo_a_romano(n: int):  
-    """trnsforma n en romano entre 1 y 3999"""
-    lista = dividir_en_digitos(n)
-    return digitos_a_roman(lista)
+
+    miles = divide_en_miles(n)
+    resultado = ""
+    for num_asteriscos, cifra in enumerate(miles):
+        lista = dividir_en_digitos(cifra)
+        romano = digitos_a_roman(lista)
+        romano += "*" * num_asteriscos
+        resultado = romano + resultado
+    
+    return resultado
 
 
 def separa_unidad_del_orden(cifra):  # cifra 200 devuelve 2 , 100
