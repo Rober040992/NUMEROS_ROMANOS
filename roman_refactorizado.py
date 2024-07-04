@@ -1,3 +1,5 @@
+"""ESTE FILE LO USE SOLO PARA PROBAR FUERA DEL MAIN FILE"""
+
 valors = {
     1: "I",
     5: "V",

@@ -46,12 +46,13 @@ def digitos_a_roman(lista):
         result += to_roman(numero)
     return result
 
-def arabigo_a_romano(n: int):
+def arabigo_a_romano(n: int):  
+    """trnsforma n en romano entre 1 y 3999"""
     lista = dividir_en_digitos(n)
     return digitos_a_roman(lista)
 
 
-def separa_unidad_del_orden(cifra):  # cifra 200 devielve 2 , 100
+def separa_unidad_del_orden(cifra):  # cifra 200 devuelve 2 , 100
     """procesa la cifra y devuelve separado el numero de las decenas, centenas , millares"""
     
     cifra_str = str(cifra)     #hay que transformar la cifra en una str para poder seleccionar 
@@ -64,6 +65,7 @@ def separa_unidad_del_orden(cifra):  # cifra 200 devielve 2 , 100
 
 
 def divide_en_miles(n:int):
+    """funcion que recibe un numero entero mayor de 4000 y devuelve una lista con el entero separado en y al reves # ejm (4127123) == [123,127, 4]"""
     lista = []
     modulo = n % 1000
     paluego = n // 1000
