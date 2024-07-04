@@ -1,4 +1,4 @@
-from roman_funcs import to_roman, dividir_en_digitos, arabigo_a_romano,separa_unidad_del_orden #divide_en_miles
+from roman_funcs import to_roman, dividir_en_digitos, arabigo_a_romano, separa_unidad_del_orden, divide_en_miles
 
 
 def test_romanos_simples():
@@ -43,10 +43,12 @@ def test_cualquier_romano():
 def test_separa():
     assert separa_unidad_del_orden(20) == (2,10)
 
-def xtest_divide_en_miles():
+def test_divide_en_miles():
     assert divide_en_miles(4127) == [127, 4]  #lo vamos a recorer del reves por que es mayor de 3999
     assert divide_en_miles(3127) == [3127] 
 
-def xtest_divide_en_millones():
-    assert divide_en_millones(4127123) == [123,127, 4]
+def test_divide_en_millones():
+    assert divide_en_miles(4127123) == [123,127, 4]
+    # probar mas casos
+    
     

@@ -63,16 +63,19 @@ def separa_unidad_del_orden(cifra):  # cifra 200 devielve 2 , 100
     return unidad , orden
 
 
-def divide_en_miles(n):
-
+def divide_en_miles(n:int):
     lista = []
     modulo = n % 1000
-    entero = n // 1000
-
-    if entero < 4:
+    paluego = n // 1000
+    while paluego >= 1000:
+        lista.append(modulo)
+        n = paluego
+        modulo = n % 1000
+        paluego = n // 1000 
+    
+    if paluego <= 3:
         lista.append(n)
     else:
         lista.append(modulo)
-        lista.append(entero)
+        lista.append(paluego)
     return lista
-
